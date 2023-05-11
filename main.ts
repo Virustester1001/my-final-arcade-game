@@ -337,6 +337,15 @@ sprites.onOverlap(SpriteKind.botenemy, SpriteKind.Enemy, function (sprite, other
     scene.cameraShake(2, 200)
 })
 info.onCountdownEnd(function () {
+    game.setGameOverEffect(true, effects.confetti)
+    game.setGameOverEffect(false, effects.slash)
+    text_list = [
+    "Player 1 score: " + info.player1.score(),
+    "Player 2 score: " + info.player2.score(),
+    "Player 3 score: " + info.player3.score(),
+    "Player 4 score: " + info.player4.score()
+    ]
+    game.setGameOverEffect(true, effects.slash)
     eventsmaker()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.enemybotprincess, function (sprite, otherSprite) {
@@ -559,10 +568,10 @@ function eventsmaker () {
         player_2.setPosition(148, 89)
         player_3.setPosition(74, 7)
         player_4.setPosition(102, 100)
-        info.player1.setLife(300)
-        info.player2.setLife(300)
-        info.player3.setLife(300)
-        info.player4.setLife(300)
+        info.player1.setLife(200)
+        info.player2.setLife(200)
+        info.player3.setLife(200)
+        info.player4.setLife(200)
         controller.player1.moveSprite(player_1)
         controller.player2.moveSprite(player_2)
         controller.player3.moveSprite(player_3)
@@ -579,7 +588,7 @@ function eventsmaker () {
         player_2.setBounceOnWall(true)
         player_3.setBounceOnWall(true)
         player_4.setBounceOnWall(true)
-        info.startCountdown(20)
+        info.startCountdown(200)
         for (let index = 0; index < 1; index++) {
             pause(200)
             player_1.sayText("Player 1", 2000, true)
@@ -800,10 +809,10 @@ function eventsmaker () {
         player_2.setPosition(148, 89)
         player_3.setPosition(74, 7)
         player_4.setPosition(102, 100)
-        info.player1.setLife(300)
-        info.player2.setLife(300)
-        info.player3.setLife(300)
-        info.player4.setLife(300)
+        info.player1.setLife(200)
+        info.player2.setLife(200)
+        info.player3.setLife(200)
+        info.player4.setLife(200)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.One), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Two), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Three), MultiplayerState.food, 100)
@@ -824,7 +833,7 @@ function eventsmaker () {
         player_2.setBounceOnWall(true)
         player_3.setBounceOnWall(true)
         player_4.setBounceOnWall(true)
-        info.startCountdown(20)
+        info.startCountdown(200)
         for (let index = 0; index < 1; index++) {
             pause(200)
             player_1.sayText("Player 1", 2000, true)
@@ -1045,10 +1054,10 @@ function eventsmaker () {
         player_2.setPosition(148, 89)
         player_3.setPosition(74, 7)
         player_4.setPosition(102, 100)
-        info.player1.setLife(300)
-        info.player2.setLife(300)
-        info.player3.setLife(300)
-        info.player4.setLife(300)
+        info.player1.setLife(150)
+        info.player2.setLife(150)
+        info.player3.setLife(150)
+        info.player4.setLife(150)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.One), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Two), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Three), MultiplayerState.food, 100)
@@ -1069,7 +1078,7 @@ function eventsmaker () {
         player_2.setBounceOnWall(true)
         player_3.setBounceOnWall(true)
         player_4.setBounceOnWall(true)
-        info.startCountdown(20)
+        info.startCountdown(200)
         for (let index = 0; index < 1; index++) {
             pause(200)
             player_1.sayText("Player 1", 2000, true)
@@ -1290,10 +1299,10 @@ function eventsmaker () {
         player_2.setPosition(148, 89)
         player_3.setPosition(74, 7)
         player_4.setPosition(102, 100)
-        info.player1.setLife(300)
-        info.player2.setLife(300)
-        info.player3.setLife(300)
-        info.player4.setLife(300)
+        info.player1.setLife(150)
+        info.player2.setLife(150)
+        info.player3.setLife(150)
+        info.player4.setLife(150)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.One), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Two), MultiplayerState.food, 100)
         mp.setPlayerState(mp.playerSelector(mp.PlayerNumber.Three), MultiplayerState.food, 100)
@@ -1314,7 +1323,7 @@ function eventsmaker () {
         player_2.setBounceOnWall(true)
         player_3.setBounceOnWall(true)
         player_4.setBounceOnWall(true)
-        info.startCountdown(20)
+        info.startCountdown(200)
         for (let index = 0; index < 1; index++) {
             pause(200)
             player_1.sayText("Player 1", 2000, true)
@@ -1566,6 +1575,7 @@ let projectile_4: Sprite = null
 let bothero: Sprite = null
 let projectile: Sprite = null
 let projectile_8: Sprite = null
+let text_list: string[] = []
 let projectile_5: Sprite = null
 let livegiver: Sprite = null
 let projectile_7: Sprite = null
@@ -1915,10 +1925,10 @@ player_1.setPosition(8, 51)
 player_2.setPosition(148, 89)
 player_3.setPosition(74, 7)
 player_4.setPosition(102, 100)
-info.player1.setLife(300)
-info.player2.setLife(300)
-info.player3.setLife(300)
-info.player4.setLife(300)
+info.player1.setLife(150)
+info.player2.setLife(150)
+info.player3.setLife(150)
+info.player4.setLife(150)
 controller.player1.moveSprite(player_1)
 controller.player2.moveSprite(player_2)
 controller.player3.moveSprite(player_3)
@@ -1958,7 +1968,7 @@ if (mp.isConnected(mp.playerSelector(mp.PlayerNumber.Four))) {
 game.splash("setting foods....")
 game.splash("LEVEL 1")
 game.splash("DIFFICULTY: Medium")
-info.startCountdown(15)
+info.startCountdown(60)
 for (let index = 0; index < 1; index++) {
     pause(200)
     player_1.sayText("Player 1", 2000, true)
